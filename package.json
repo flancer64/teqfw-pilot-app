@@ -1,0 +1,29 @@
+{
+  "name": "teqfw-app-sample",
+  "version": "0.1.0",
+  "description": "Sample TeqFW based application.",
+  "main": "index.js",
+  "scripts": {
+    "docs": "./node_modules/jsdoc/jsdoc.js --debug -p -c ./jsdoc.conf.json",
+    "start": "node bin/tequila.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user/repo.git"
+  },
+  "dependencies": {
+    "teqfw-core-app": "git+https://git@github.com/user/repo.git"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "jsdoc": "~3.6.3"
+  },
+  "teqfw": {
+    "autoload": {
+      "ns": "Vendor_App",
+      "path": "./app"
+    }
+  }
+}

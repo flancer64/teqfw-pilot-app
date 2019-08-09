@@ -11,10 +11,11 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/user/repo.git"
+    "url": "git+https://github.com/flancer64/teqfw-pilot-app.git"
   },
   "dependencies": {
-    "teqfw-core-app": "git+https://git@github.com/user/repo.git"
+    "mysql": "^2.17.1",
+    "teqfw-core-app": "git+https://git@github.com/teqfw/core-app.git"
   },
   "devDependencies": {
     "jest": "^24.8.0",

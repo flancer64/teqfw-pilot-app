@@ -1,4 +1,6 @@
 /.idea/
+/cfg/local.json
 /node_modules/
 /own_modules/
+/package-lock.json
 /var/

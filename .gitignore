@@ -4,3 +4,4 @@
 /own_modules/
 /package-lock.json
 /var/
+!/var/tmp/README.*

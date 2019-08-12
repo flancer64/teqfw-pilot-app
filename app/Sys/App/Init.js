@@ -49,10 +49,6 @@ function Vendor_App_Name_Sys_App_Init(
                 path_to_home_page: $path.join(path_root, "pub", "mobile.html")
             });
             _reg_back_realms.add({
-                name: "desktop",
-                path_to_home_page: $path.join(path_root, "pub", "desktop.html")
-            });
-            _reg_back_realms.add({
                 name: "admin",
                 path_to_home_page: $path.join(path_root, "pub", "admin.html")
             });
@@ -72,6 +68,10 @@ function Vendor_App_Name_Sys_App_Init(
         function setup_routes_front() {
             /* init web server routes */
             _reg_front_routes.add({path: "/home", component_name: "app-home", label: "Home"});
+            _reg_front_routes.add({path: "/profile", component_name: "app-home", label: "Profile"});
+            _reg_front_routes.add({path: "/sign/in", component_name: "app-home", label: "Sign In"});
+            _reg_front_routes.add({path: "/sign/out", component_name: "app-home", label: "Sign Out"});
+            _reg_front_routes.add({path: "/sign/up", component_name: "app-home", label: "Sign Up"});
         }
 
         /* This function actions. */

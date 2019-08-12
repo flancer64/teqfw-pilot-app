@@ -1,5 +1,6 @@
 <template>
     <div>
+        <app-navig-top></app-navig-top>
         <span class="name">Mobile realm.</span>
     </div>
 
@@ -12,7 +13,10 @@
 </style>
 
 <script>
-    define(["Vue"], function (Vue, logger) {
+    define([
+        "Vue",
+        "vue!./comp/navig_top.vue"
+    ], function (Vue) {
         // const Vue = window.Vue;
         Vue.component("app-main", {
             template: template

@@ -18,45 +18,34 @@
             <b-button type="submit" variant="primary">Sign In</b-button>
 
         </b-form>
-<!--        <b-card class="mt-3" header="Form Data Result">-->
-<!--            <pre class="m-0">{{ form }}</pre>-->
-<!--        </b-card>-->
+        <!--        <b-card class="mt-3" header="Form Data Result">-->
+        <!--            <pre class="m-0">{{ form }}</pre>-->
+        <!--        </b-card>-->
     </div>
 </template>
 
 <script>
     define(["Vue"], function (Vue) {
-        Vue.component('app-sign-in', {
+        Vue.component("app-sign-in", {
             template,
             data() {
                 return {
                     form: {
-                        email: '',
-                        name: '',
-                        food: null,
-                        checked: []
+                        user: "",
+                        password: ""
                     },
-                    foods: [{text: 'Select One', value: null}, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
                     show: true
                 }
             },
             methods: {
                 onSubmit(evt) {
-                    evt.preventDefault()
-                    alert(JSON.stringify(this.form))
-                },
-                onReset(evt) {
-                    evt.preventDefault()
-                    // Reset our form values
-                    this.form.email = ''
-                    this.form.name = ''
-                    this.form.food = null
-                    this.form.checked = []
-                    // Trick to reset/clear native browser form validation state
-                    this.show = false
-                    this.$nextTick(() => {
-                        this.show = true
-                    })
+                debugger;
+                    evt.preventDefault();
+                    fetch("/app/sign_in").then((response) => {
+                        return response.json();
+                    }).then((result) => {
+                        alert(JSON.stringify(result));
+                    });
                 }
             }
 

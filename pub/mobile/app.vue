@@ -1,7 +1,10 @@
 <template>
     <div>
         <app-navig-top></app-navig-top>
-        <span class="name">Mobile realm.</span>
+        <!--        <span v-for="item in getRoutes()">-->
+        <!--            <router-link :to="item.path">{{item.name}}</router-link> |-->
+        <!--        </span>-->
+        <router-view></router-view>
     </div>
 
 </template>
@@ -15,11 +18,21 @@
 <script>
     define([
         "Vue",
-        "vue!./comp/navig_top.vue"
+        "vue!./comp/navig_top.vue",
+        "vue!./comp/sign_in.vue"
     ], function (Vue) {
         // const Vue = window.Vue;
-        Vue.component("app-main", {
-            template: template
+        Vue.component("AppMain", {
+            template,
+            methods: {
+                getRoutes: function () {
+                    const result = [];
+                    this.$router.options.routes.forEach(route => {
+                        result.push({name: route.name, path: route.path})
+                    });
+                    return result;
+                }
+            }
         });
     });
 </script>

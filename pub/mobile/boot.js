@@ -38,7 +38,7 @@ requirejs([
         const label = one.label;
         const comp_name = one.component_name;
         const comp_obj = Vue.component(comp_name);
-        routes.push({path: path, name: label, component: comp_obj});
+        routes.push({path: "/mobile" + path, name: label, component: comp_obj});
     }
 
     const router = new VueRouter({

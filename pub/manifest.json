@@ -1,6 +1,6 @@
 {
-  "short_name": "TeqFW Sample App",
-  "name": "Tequila Framework based Application.",
+  "short_name": "TeqFW Pilot App",
+  "name": "Pilot Application.",
   "icons": [
     {
       "src": "/pub/favicon.ico",

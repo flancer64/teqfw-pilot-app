@@ -18,17 +18,24 @@ function Fl64_Pilot_Back_Route_Handler_SignIn(
      * @type {*[]}
      * @private
      */
-    const _base = [
-        {user: "alex", password: "pass_alex"},
-        {user: "john", password: "pass_john"},
-        {user: "boo", password: "pass_bar"}
-    ];
+    const _base = {
+        alex: "gusev",
+        john: "doe",
+        jane: "doe"
+    };
     /**
      * Send text to the web.
      */
     this.exec = function (req, res, next) {
         _logger.debug("SignIn API request is here...");
-        res.send({msg: "Empty handler is here!!"});
+        const body = req.body;
+        let result = {msg: "U-ups... authentication is failed."};
+        if (typeof body === "object" && body.user && body.password) {
+            if (_base[body.user] === body.password) {
+                result = {msg: "Yo, bro! You are authenticated!!!"};
+            }
+        }
+        res.send(result);
         // next();
     };
 

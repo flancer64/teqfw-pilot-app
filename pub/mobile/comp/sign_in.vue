@@ -1,16 +1,18 @@
 <template>
     <div>
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form @submit="onSubmit" v-if="show">
             <b-form-input
                     id="input-user"
                     v-model="form.user"
-                    type="email"
+                    type="text"
+                    autocomplete="username"
                     required
                     placeholder="Enter your email or user name"/>
             <b-form-input
                     id="input-password"
                     v-model="form.password"
                     type="password"
+                    autocomplete="current-password"
                     required
                     placeholder="Enter your password"/>
 
@@ -41,7 +43,13 @@
                 onSubmit(evt) {
                 debugger;
                     evt.preventDefault();
-                    fetch("/app/sign_in").then((response) => {
+                    fetch("/app/sign_in", {
+                        method: "POST",
+                        body: JSON.stringify(this.form),
+                        headers:{
+                            'Content-Type': 'application/json'
+                        }
+                    }).then((response) => {
                         return response.json();
                     }).then((result) => {
                         alert(JSON.stringify(result));

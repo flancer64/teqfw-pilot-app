@@ -8,14 +8,16 @@ const $path = require("path");
  * @param {TeqFw_Core_App_Registry_Front_Route} TeqFw_Core_App_Registry_Front_Route
  * @param {TeqFw_Core_App_Registry_Server_Realm} TeqFw_Core_App_Registry_Server_Realm
  * @param {TeqFw_Core_App_Registry_Server_Route} TeqFw_Core_App_Registry_Server_Route
- * @return {Vendor_App_Name_Sys_App_Init}
+ * @param {Fl64_Pilot_Back_Route_Handler_SignIn} Fl64_Pilot_Back_Route_Handler_SignIn
+ * @return {Fl64_Pilot_Sys_App_Init}
  * @constructor
  */
-function Vendor_App_Name_Sys_App_Init(
+function Fl64_Pilot_Sys_App_Init(
     TeqFw_Core_App_Configurator,
     TeqFw_Core_App_Registry_Front_Route,
     TeqFw_Core_App_Registry_Server_Realm,
-    TeqFw_Core_App_Registry_Server_Route
+    TeqFw_Core_App_Registry_Server_Route,
+    Fl64_Pilot_Back_Route_Handler_SignIn
 ) {
     /* Private properties of the TeqFW object have prefix "_". */
 
@@ -27,6 +29,8 @@ function Vendor_App_Name_Sys_App_Init(
     const _reg_back_realms = TeqFw_Core_App_Registry_Server_Realm;
     /** @type {TeqFw_Core_App_Registry_Server_Route} */
     const _reg_back_routes = TeqFw_Core_App_Registry_Server_Route;
+    /** @type {Fl64_Pilot_Back_Route_Handler_SignIn} */
+    const _hndl_sign_in = Fl64_Pilot_Back_Route_Handler_SignIn;
 
 
     /**
@@ -59,7 +63,7 @@ function Vendor_App_Name_Sys_App_Init(
          * Setup backend routes (server side API).
          */
         function setup_routes_back() {
-            _reg_back_routes.add({});
+            _reg_back_routes.add({path: "/app/sign_in", handler: _hndl_sign_in});
         }
 
         /**
@@ -87,4 +91,4 @@ function Vendor_App_Name_Sys_App_Init(
 }
 
 /* Module exports */
-module.exports = Vendor_App_Name_Sys_App_Init;
+module.exports = Fl64_Pilot_Sys_App_Init;

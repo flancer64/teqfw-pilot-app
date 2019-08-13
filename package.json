@@ -23,7 +23,7 @@
   },
   "teqfw": {
     "autoload": {
-      "ns": "Vendor_App",
+      "ns": "Fl64_Pilot",
       "path": "./app"
     }
   }

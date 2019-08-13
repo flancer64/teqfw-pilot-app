@@ -1,4 +1,6 @@
 "use strict";
+const $Paseto = require('paseto.js');
+const $encoder = new $Paseto.V2();
 
 /**
  * Authenticate users by username & password.
@@ -32,11 +34,26 @@ function Fl64_Pilot_Back_Route_Handler_SignIn(
         let result = {msg: "U-ups... authentication is failed."};
         if (typeof body === "object" && body.user && body.password) {
             if (_base[body.user] === body.password) {
-                result = {msg: "Yo, bro! You are authenticated!!!"};
+                $encoder.symmetric()
+                    .then(sk => {
+                        // (sk instanceof Paseto.SymmetricKey) -> true
+                        const message = 'A screaming comes across the sky.'
+                        return $encoder.encrypt(message, sk);
+                    })
+                    .then(token => {
+                        result = {token};
+                        res.send(result);
+                    })
+                    .catch((err) => {
+                        _logger.error(err);
+                        res.send(result);
+                    });
+            } else {
+                res.send(result);
             }
+        } else {
+            res.send(result);
         }
-        res.send(result);
-        // next();
     };
 
     /* Object finalization (result) */

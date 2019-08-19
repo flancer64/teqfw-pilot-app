@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "./node_modules/jsdoc/jsdoc.js --debug -p -c ./jsdoc.conf.json",
-    "start": "node bin/tequila.js",
+    "start": "node --experimental-modules bin/tequila.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "GPL-3.0",

@@ -5,16 +5,16 @@
 # current directory where from script was launched (to return to in the end)
 DIR_CUR="$PWD"
 # root directory (relative to the current shell script, not to the execution point)
-DIR_ROOT=${DIR_ROOT:=$(cd "$( dirname "$0" )/" && pwd)}
+DIR_ROOT=${DIR_ROOT:=$(cd "$(dirname "$0")/" && pwd)}
 
 ## =========================================================================
 #   Setup working environment (this script's context)
 ## =========================================================================
 DIR_MODULES="own_modules"
 MOD_TEQFW_CORE_APP="teqfw-core-app"
-MOD_TEQFW_CORE_DI="teqfw-core-di"
+MOD_TEQFW_CORE_DI="teqfw-di"
+NPM_TEQFW_DI="@teqfw/di"
 PATH_MODULES="${DIR_ROOT}/${DIR_MODULES}"
-
 
 ## =========================================================================
 #   Perform processing
@@ -22,32 +22,30 @@ PATH_MODULES="${DIR_ROOT}/${DIR_MODULES}"
 ##
 #   Clone dev modules if not cloned yet.
 ##
-if test ! -d "${PATH_MODULES}" ; then
-    echo "Create folder for own modules development."
-    mkdir -p "${PATH_MODULES}"
+if test ! -d "${PATH_MODULES}"; then
+  echo "Create folder for own modules development."
+  mkdir -p "${PATH_MODULES}"
 fi
 
-if test ! -d "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}" ; then
-    git clone https://github.com/teqfw/core-app.git "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}"
-    cd "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}" || exit
-    sudo npm link
-    sudo rm -fr ./node_modules ./package-lock.json
+if test ! -d "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}"; then
+  git clone https://github.com/teqfw/core-app.git "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}"
+  cd "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}" || exit
+  sudo npm link
+  sudo rm -fr ./node_modules ./package-lock.json
 else
-    cd "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}" || exit
-    git pull
+  cd "${PATH_MODULES}/${MOD_TEQFW_CORE_APP}" || exit
+  git pull
 fi
 
-if test ! -d "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}" ; then
-    git clone https://github.com/teqfw/core-di.git "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}"
-    cd "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}" || exit
-    sudo npm link
-    sudo rm -fr ./node_modules ./package-lock.json
+if test ! -d "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}"; then
+  git clone https://github.com/teqfw/di.git "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}"
+  cd "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}" || exit
+  sudo npm link
+  sudo rm -fr ./node_modules ./package-lock.json
 else
-    cd "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}" || exit
-    git pull;
+  cd "${PATH_MODULES}/${MOD_TEQFW_CORE_DI}" || exit
+  git pull
 fi
-
-
 
 ##
 #   Reinstall nodejs application.
@@ -59,15 +57,13 @@ echo "Re-install JS project."
 cd "${DIR_ROOT}" || exit
 npm install
 
-
 ##
 #   Link this project dev dependencies to cloned instances.
 ##
 echo "Link dev. dependencies to the project."
 cd "${DIR_ROOT}" || exit
 npm link "${MOD_TEQFW_CORE_APP}"
-npm link "${MOD_TEQFW_CORE_DI}"
-
+npm link "${NPM_TEQFW_DI}"
 
 ##
 #   Finalize script.

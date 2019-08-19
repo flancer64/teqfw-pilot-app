@@ -1,7 +1,7 @@
 {
-  "name": "teqfw-app-sample",
+  "name": "teqfw-pilot-app",
   "version": "0.1.0",
-  "description": "Sample TeqFW based application.",
+  "description": "TeqFW based application with pilot functionality.",
   "main": "index.js",
   "scripts": {
     "docs": "./node_modules/jsdoc/jsdoc.js --debug -p -c ./jsdoc.conf.json",

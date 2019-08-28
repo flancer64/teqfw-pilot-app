@@ -6,15 +6,15 @@ import $path from "path";
 export default class Fl64_Pilot_Sys_App_Init {
     constructor(spec) {
         /** @type {TeqFw_Core_App_Configurator} */
-        const _config = spec.TeqFw_Core_App_Configurator;
+        const _config = spec.TeqFw_Core_App_Configurator$;
         /** @type {TeqFw_Core_App_Registry_Front_Route} */
-        const _reg_front_routes = spec.TeqFw_Core_App_Registry_Front_Route;
+        const _reg_front_routes = spec.TeqFw_Core_App_Registry_Front_Route$;
         /** @type {TeqFw_Core_App_Registry_Server_Realm} */
-        const _reg_back_realms = spec.TeqFw_Core_App_Registry_Server_Realm;
+        const _reg_back_realms = spec.TeqFw_Core_App_Registry_Server_Realm$;
         /** @type {TeqFw_Core_App_Registry_Server_Route} */
-        const _reg_back_routes = spec.TeqFw_Core_App_Registry_Server_Route;
+        const _reg_back_routes = spec.TeqFw_Core_App_Registry_Server_Route$;
         /** @type {Fl64_Pilot_Back_Route_Handler_SignIn} */
-        const _hndl_sign_in = spec.Fl64_Pilot_Back_Route_Handler_SignIn;
+        const _hndl_sign_in = spec.Fl64_Pilot_Back_Route_Handler_SignIn$;
 
 
         /**

@@ -11,7 +11,7 @@ const _pk = new $Paseto.PublicKey(new $Paseto.V2());
 export default class Fl64_Pilot_Back_Route_Handler_SignIn {
     constructor(spec) {
         /** @type {TeqFw_Core_App_Logger} */
-        const _logger = spec.TeqFw_Core_App_Logger;
+        const _logger = spec.TeqFw_Core_App_Logger$;
         /**
          * Hardcoded users data.
          *

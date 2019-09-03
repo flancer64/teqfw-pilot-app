@@ -12,10 +12,11 @@
 </style>
 
 <script>
-    define(["Vue"], function (Vue, logger) {
-        // const Vue = window.Vue;
-        Vue.component("app-main", {
-            template: template
-        });
-    });
+    module.exports = {
+        data: function() {
+            return {
+                who: 'world'
+            }
+        }
+    }
 </script>

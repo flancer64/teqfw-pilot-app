@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mobile Realm</title>
+    <title>Admin Realm</title>
     <!-- Required by BootstrapVue (https://bootstrap-vue.js.org/docs) -->
     <!-- https://developers.google.com/web/fundamentals/design-and-ux/responsive/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/css" rel="stylesheet" href="/pub/local/lib/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/pub/local/lib/bootstrap-vue.min.css"/>
+    <!-- Vue & BootstrapVue section -->
+    <script src="/pub/local/lib/vue.js"></script>
+    <script src="/pub/local/lib/bootstrap-vue.min.js"></script>
+    <script src="/pub/local/lib/vue-router.min.js"></script>
+    <script src="/pub/local/lib/httpVueLoader.js"></script>
     <!-- PWA section -->
     <link rel="manifest" href="/manifest.json">
     <!-- This app section -->
     <link rel="stylesheet" href="/pub/admin/style.css">
-    <!-- Load required Bootstrap and BootstrapVue CSS -->
-    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
-    <!-- Vue & BootstrapVue section -->
-    <script src="//unpkg.com/vue/dist/vue.js"></script>
-    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
-    <!-- import AMD loader and load boot script -->
-    <script src="//cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js" defer
-            data-main="/pub/admin/boot"></script>
+    <script type="module" src="/pub/admin/boot.js" defer></script>
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {

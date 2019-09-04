@@ -19,8 +19,10 @@
     "teqfw-core-app": "git+https://git@github.com/teqfw/core-app.git"
   },
   "devDependencies": {
-    "jest": "^24.8.0",
-    "jsdoc": "~3.6.3"
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "jsdoc": "~3.6.3",
+    "mocha": "^6.2.0"
   },
   "teqfw": {
     "autoload": {
